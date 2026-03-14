@@ -1,0 +1,9 @@
+[package]
+name = "nodal_economy"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = "0.18.1"
+bevy_rand = "0.14.2"
+rand = "0.10.0"
