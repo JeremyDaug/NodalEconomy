@@ -284,6 +284,10 @@ pub enum GoodTag {
     /// from the good. While it should not reduce [`decay_chance`] below 0.0, it
     /// is allowed to. Reducing below 0.0 does nothing more.
     Preserveable{reduction: f64},
+    /// The good is a Commodity and cannot be distinquished based on quality.
+    /// 
+    /// Commodities cannot be paired with Quality Package tags.
+    Commodity,
 }
 
 impl GoodTag {
@@ -341,6 +345,13 @@ impl GoodTag {
     pub fn is_preserveable(&self) -> bool {
         match self {
             GoodTag::Preserveable { .. } => true,
+            _ => false
+        }
+    }
+
+    pub fn is_commodity(&self) -> bool {
+        match self {
+            GoodTag::Commodity => true,
             _ => false
         }
     }
